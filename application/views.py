@@ -6,12 +6,13 @@ from flask import request, render_template
 from werkzeug.contrib.cache import SimpleCache
 cache = SimpleCache()
 
+
 @app.route('/')
 def front_page():
+    """on the front page, we assume that if the sentences cache exists, then the default sentence is at root.
+    if not, we should create it and store it in the cache."""
     from models import Sentence
     sentences = cache.get("sentence_list")
-    #on the front page, we assume that if the sentences cache exists, then the default sentence is at root.
-    #if not, we should create it and store it in the cache.
     if sentences:
         return render_template('index.html', sentence=sentences[0])
     else:
@@ -21,6 +22,11 @@ def front_page():
 
 
 def get_sentence_object(sentence, sentences_from_cache):
+    """
+    :param sentence: Sentence string in unicode format
+    :param sentences_from_cache: List of Sentence objects.
+    :return: Sentence object
+    """
     for idx, current_sentence in enumerate(sentences_from_cache):
         if sentence in current_sentence.centre:
             return current_sentence
@@ -55,6 +61,7 @@ def add_sentence():
     else:
         current_sentence = cache.get("sentence_list")[0]
     return render_template('index.html', sentence=current_sentence)
+
 
 
 """Standard error handlers for 404/500 responses."""
