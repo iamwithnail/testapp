@@ -11,11 +11,9 @@ The system uses *Flask*, as it is lightweight, has minimal dependencies and few 
 project.  Werkzeug's *SimpleCache* is used to store data while using the application, since it is packaged with Flask and is
 entirely suitable for short term storage of non-persistent data.  It would not be suitable for use in a production environment.
 
-We have implemented a Sentence class, which stores sentence strings in explicit positional attributes, e.g:
-    |>>>sentence = Sentence(text="The quick brown fox jumped over the lazy dog")
-    |>>>sentence.centre``
-    |The quick brown fox jumped over the lazy dog
-    |>>>
+We have implemented a Sentence class, which stores sentence strings in explicit positional attributes, e.g. a Sentence object has sentence.centre, sentence.bottom.
+
+Sentences are stored in an object list in the in-memory cache, and retrieved by a full-text, iterative search.  This is not a sustainable approach.
 
 It would be a relatively simple refactor to translate this into a database object if persistence were required.
 
