@@ -1,72 +1,77 @@
 {% extends 'base.html' %}
 
 {%block content %}
-<a href="/"> Back to the start</a>
-<table>
-<tr>
-    <td></td>
-        <td>
-            {% if sentence.top %}
-            <a href="/sentence/{{sentence.top}}">{{sentence.top}}</a>
-            {% else %}
-        <form action="/add_sentence" method="Post">
-            <textarea name="sentence" cols=30 rows=3></textarea></br>
-            <input type="hidden" name="position" value="top">
-            <input type="hidden" name="current-sentence" value="{{ sentence.centre }}">
-            <button type="submit" class="save btn btn-default">Submit</button></form>
-            {% endif %}
-        </td>
-    
-    <td></td>
-</tr>
-<tr>
-        <td>
-            {% if sentence.left %}
-                <a href="/sentence/{{sentence.left}}">{{sentence.left}}</a>
-            {% else %}
-                <form action="/add_sentence" method="Post">
+    <a href="/"> Back to the start</a>
+    <table>
+        <tr>
+            <td></td>
+            <td>
+                {% if sentence.top %}
+                    <a href="/sentence/{{sentence.top}}">{{sentence.top}}</a>
+                {% else %}
+                    <form action="/add_sentence" method="Post">
                     <textarea name="sentence" cols=30 rows=3></textarea></br>
-                    <input type="hidden" name="position" value="left">
+                    <input type="hidden" name="position" value="top">
                     <input type="hidden" name="current-sentence" value="{{ sentence.centre }}">
-                    <button type="submit" class="save btn btn-default">
-                        Submit
-                    </button>
-                </form>
-            {% endif %}
-        </td>
-<td>{{sentence.centre}}</td>
-<td>
-            {% if sentence.right %}
-                <a href="/sentence/{{sentence.right}}">{{ sentence.right }}</a>
-            {% else %}
-                <form action="/add_sentence" method="Post">
-                    <textarea name="sentence" cols=30 rows=3></textarea></br>
-                    <input type="hidden" name="position" value="right">
-                    <input type="hidden" name="current-sentence" value="{{ sentence.centre }}">
-                    <button type="submit" class="save btn btn-default">
-                        Submit
-                    </button>
-                </form>
-            {% endif %}
-        </td>
-</tr>
-<tr>
-<td></td>
-<td>
-            {% if sentence.bottom %}
-                <a href="/sentence/{{sentence.bottom}}">{{sentence.bottom}}</a>
-            {% else %}
-                <form action="/add_sentence" method="Post">
-                    <textarea name="sentence" cols=30 rows=3></textarea></br>
-                    <input type="hidden" name="position" value="bottom">
-                    <input type="hidden" name="current-sentence" value="{{ sentence.centre }}">
-                    <button type="submit" class="save btn btn-default">
-                        Submit
-                    </button>
-                </form>
-            {% endif %}
-        </td>
-<td></td>
-</tr>
-</table>
+                    <button type="submit" class="save btn btn-default">Submit</button></form>
+                {% endif %}
+            </td>
+
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                {% if sentence.left %}
+                    <a href="/sentence/{{sentence.left}}">{{sentence.left}}</a>
+                {% else %}
+                    <form action="/add_sentence" method="Post">
+                        <textarea name="sentence" cols=30 rows=3></textarea></br>
+                        <input type="hidden" name="position" value="left">
+                        <input type="hidden" name="current-sentence" value="{{ sentence.centre }}">
+                        <button type="submit" class="save btn btn-default">
+                           Submit
+                        </button>
+                    </form>
+                {% endif %}
+
+                </td>
+
+            <td>
+                {{sentence.centre}}
+            </td>
+            <td>
+                {% if sentence.right %}
+                    <a href="/sentence/{{sentence.right}}">{{ sentence.right }}</a>
+                {% else %}
+                    <form action="/add_sentence" method="Post">
+                        <textarea name="sentence" cols=30 rows=3></textarea></br>
+                        <input type="hidden" name="position" value="right">
+                        <input type="hidden" name="current-sentence" value="{{ sentence.centre }}">
+                        <button type="submit" class="save btn btn-default">
+                            Submit
+                        </button>
+                    </form>
+                {% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                {% if sentence.bottom %}
+                    <a href="/sentence/{{sentence.bottom}}">{{sentence.bottom}}</a>
+                {% else %}
+                    <form action="/add_sentence" method="Post">
+                        <textarea name="sentence" cols=30 rows=3></textarea></br>
+                        <input type="hidden" name="position" value="bottom">
+                        <input type="hidden" name="current-sentence" value="{{ sentence.centre }}">
+                        <button type="submit" class="save btn btn-default">
+                            Submit
+                        </button>
+                    </form>
+                {% endif %}
+                    </td>
+            <td></td>
+        </tr>
+    </table>
 {%endblock content %}

@@ -10,6 +10,7 @@ Design & Approach
 The system uses *Flask*, as it is lightweight, has minimal dependencies and few features that are superfluous in a small
 project.  Werkzeug's *SimpleCache* is used to store data while using the application, since it is packaged with Flask and is
 entirely suitable for short term storage of non-persistent data.  It would not be suitable for use in a production environment.
+As no schema for URLs was outlined, the application does not prettify URLs on adding a new sentence, and directs to 'add_sentence', but this could be changed to redisplay the current sentence if required.
 
 We have implemented a Sentence class, which stores sentence strings in explicit positional attributes, e.g. a Sentence object has sentence.centre, sentence.bottom.
 
@@ -27,6 +28,7 @@ Installation and Use
 ^^^^^^^^^^^^^^^^^^^^
 Open this package, or clone from source at <git@github.com:iamwithnail/testapp.git>
 Set up a virtualenv using
+
     * virtualenv env
     * source env/bin/activate
     * pip install -r requirements.txt
@@ -45,12 +47,13 @@ throw a 500 error, if for example they are accessed through the back button or f
 Test Intent
 ^^^^^^^^^^^
 The technical test was intended to assess the ability to:
-* make suitable tradeoffs on system complexity versus speed, while maintaining code quality.
-* implement client specifications into a piece of functioning software
-* write readable code
-* write client-suitable technical documentation and supporting documents
-* consider a range of technical solutions and implement one
-* package and deliver a piece of functional software, rather than assessing standalone knowledge of CompSci concepts, which are often the focus of technical tests, but a less useful indicator of the ability to function in a team
+
+    * make suitable tradeoffs on system complexity versus speed, while maintaining code quality.
+    * implement client specifications into a piece of functioning software
+    * write readable code
+    * write client-suitable technical documentation and supporting documents
+    * consider a range of technical solutions and implement one
+    * package and deliver a piece of functional software, rather than assessing standalone knowledge of CompSci concepts, which are often the focus of technical tests, but a less useful indicator of the ability to function in a team
 
 
 
