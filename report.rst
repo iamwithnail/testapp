@@ -1,7 +1,7 @@
 Multiple Stories
 ==============================
 
-Framework for the treatout MVVP March 2016
+Layout for Multiple Stories tech test June 2016.
 
 
 Design & Approach
